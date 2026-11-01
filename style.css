@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+:root {
+  --wine: #6f293c;
+  --rose: #c98788;
+  --cream: #fff8ef;
+  --gold: #d8b779;
+  --ink: #2b1b20;
+}
+html { min-height: 100%; }
+body {
+  margin: 0; min-height: 100vh; color: var(--cream);
+  background: radial-gradient(ellipse at 50% 25%, #56303b 0%, #321d27 48%, #1c1319 100%);
+  font-family: "DM Sans", sans-serif; overflow-x: hidden;
+}
+.ambient { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .18; pointer-events: none; }
+.ambient-one { width: 360px; height: 360px; background: #c87882; top: 5%; left: -150px; }
+.ambient-two { width: 420px; height: 420px; background: #a77b51; bottom: -200px; right: -150px; }
+.page { position: relative; z-index: 1; width: min(100% - 44px, 1080px); min-height: 100vh; margin: auto; display: flex; flex-direction: column; }
+.topbar { height: 88px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.12); }
+.monogram { color: var(--gold); text-decoration: none; font: 42px "Playfair Display", serif; line-height: 1; }
+.top-note, .date-pill, .eyebrow, .date-label, .time-unit small, footer { letter-spacing: .2em; font-size: 10px; }
+.top-note { color: #d7b9b7; }
+.date-pill { color: var(--cream); border: 1px solid rgba(216,183,121,.45); border-radius: 30px; padding: 10px 15px; letter-spacing: .12em; }
+.hero { text-align: center; padding: clamp(48px, 8vh, 88px) 0 34px; }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 13px; color: var(--gold); }
+.eyebrow-line { width: 32px; height: 1px; background: var(--gold); opacity: .7; }
+h1 { font: 600 clamp(54px, 8vw, 92px)/.99 "Playfair Display", serif; margin: 28px 0 18px; letter-spacing: -.045em; }
+h1 em, .intro em, .bottom em { color: #e2b5ad; font-weight: 500; }
+.intro { color: #d8c4c2; font-size: 14px; line-height: 1.9; margin: 0; }
+.countdown { display: flex; justify-content: center; align-items: flex-start; gap: clamp(9px, 2.8vw, 30px); margin: 53px auto 0; }
+.time-unit { min-width: clamp(52px, 9vw, 105px); display: flex; flex-direction: column; gap: 10px; }
+.time-unit span { font: 500 clamp(40px, 7vw, 72px)/1 "Playfair Display", serif; font-variant-numeric: tabular-nums; color: #fff8ef; text-shadow: 0 4px 28px rgba(0,0,0,.2); }
+.time-unit small { color: #cfaeaa; font-size: 9px; letter-spacing: .18em; }
+.colon { font: 48px/1 "Playfair Display", serif; color: var(--gold); opacity: .8; }
+.countdown-caption { color: #d9b8b2; font: italic 16px "Playfair Display", serif; margin-top: 25px; }
+.date-card { display: inline-flex; align-items: center; justify-content: center; gap: 25px; margin-top: 47px; padding: 17px 27px; border: 1px solid rgba(216,183,121,.35); background: rgba(255,255,255,.035); border-radius: 3px; text-align: left; }
+.date-card > div:nth-child(2) { display: flex; flex-direction: column; gap: 5px; }
+.date-flower { color: var(--gold); font-size: 25px; }
+.date-label { color: var(--gold); font-size: 8px; }
+.date-card strong { font: 500 17px "Playfair Display", serif; }
+.date-sub { color: #cdb7b3; font-size: 11px; }
+.bottom { margin-top: auto; text-align: center; padding: 25px 0 27px; }
+.quote-mark { color: var(--gold); font: 60px/.55 "Playfair Display", serif; opacity: .8; }
+.bottom p { font: 500 20px/1.5 "Playfair Display", serif; color: #eadbd4; margin: 12px 0 13px; }
+.tiny-hearts { color: #d38c91; font-size: 10px; letter-spacing: .4em; }
+footer { color: #987d80; font-size: 8px; margin-top: 24px; letter-spacing: .22em; }
+.sparkles { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.sparkle { position: absolute; color: #e6c99c; opacity: 0; animation: floatUp linear infinite; }
+@keyframes floatUp { 0% { transform: translateY(20px) rotate(0deg); opacity: 0; } 15% { opacity: .45; } 85% { opacity: .25; } 100% { transform: translateY(-110vh) rotate(180deg); opacity: 0; } }
+@media (max-width: 560px) {
+  .page { width: min(100% - 30px, 1080px); }
+  .topbar { height: 70px; }
+  .top-note { font-size: 8px; letter-spacing: .12em; }
+  .date-pill { font-size: 8px; padding: 8px 10px; }
+  .hero { padding-top: 62px; }
+  .eyebrow { font-size: 8px; gap: 8px; }
+  .eyebrow-line { width: 20px; }
+  .countdown { gap: 5px; margin-top: 45px; }
+  .time-unit { min-width: 0; width: 22%; }
+  .time-unit span { font-size: clamp(34px, 10vw, 52px); }
+  .time-unit small { font-size: 7px; letter-spacing: .12em; }
+  .colon { font-size: 30px; }
+  .date-card { gap: 12px; padding: 14px 13px; margin-top: 40px; }
+  .date-card strong { font-size: 14px; }
+  .date-sub { font-size: 9px; }
+  .date-flower { font-size: 19px; }
+  .bottom { padding-bottom: 22px; }
+}
+@media (max-height: 760px) and (min-width: 561px) {
+  .hero { padding-top: 35px; }
+  .countdown { margin-top: 35px; }
+  .date-card { margin-top: 30px; }
+}
+
+/* Couple-name styling */
+.monogram { font-size: 25px; letter-spacing: -.06em; }
+.monogram span { color: #e2b5ad; font-style: italic; font-size: 20px; }
+.name-amp { color: #d8b779; font-style: italic; font-weight: 500; }
+@media (max-width: 560px) {
+  .monogram { font-size: 21px; }
+}
